@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>vieron/ui-input-slider</title>
+
+  <link rel="stylesheet" href="build/ui-input-slider.min.css" type="text/css">
+  <script src="build/ui-input-slider.min.js"></script>
+
+  <style>
+
+    .ui-theme-demo-custom .ui-input-slider-fill {
+      background: #3399FF;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      margin-left: -10px;
+      padding-right: 10px;
+    }
+
+    .ui-theme-demo-custom .ui-input-slider-inner-area {
+      margin: 0;
+      padding: 0 10px;
+      border-radius: 25px;
+    }
+
+    .ui-theme-demo-custom .ui-input-slider-handle {
+      background: #0060C4;
+      border-color: #0060C4;
+      opacity: 1;
+      -ms-opacity: 1;
+      border-radius: 100%;
+    }
+
+
+
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-fill {
+      background: #3399FF;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      margin-left: -10px;
+      padding-right: 10px;
+    }
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-inner-area {
+      margin: 0;
+      padding: 0 10px;
+      border-radius: 25px;
+    }
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-handle {
+      background: #0060C4;
+      border-color: #0060C4;
+      opacity: 1;
+      -ms-opacity: 1;
+      border-radius: 100%;
+    }
+
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-area {
+      height: 5px;
+    }
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-inner-area {
+      border-color: transparent;
+    }
+
+    .ui-theme-demo-custom-v2 .ui-input-slider-handle {
+      top: -5px;
+      width: 15px;
+      height: 15px;
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+    <div id="s1" class="ui-input-slider">
+      <input type="number" class="ui-input-slider-input" value="80">
+        <div class="ui-input-slider-area">
+          <div class="ui-input-slider-handle" draggable="false"></div>
+          <div class="ui-input-slider-inner-area">
+            <div class="ui-input-slider-fill"></div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="s2" class="ui-input-slider">
+      <input type="number" class="ui-input-slider-input" value="1000">
+        <div class="ui-input-slider-area">
+          <div class="ui-input-slider-handle" draggable="false"></div>
+          <div class="ui-input-slider-inner-area">
+            <div class="ui-input-slider-fill"></div>
+          </div>
+        </div>
+    </div>
+
+
+
+    <div id="s3" class="ui-input-slider">
+      <input type="number" class="ui-input-slider-input" value="1000">
+        <div class="ui-input-slider-area">
+          <div class="ui-input-slider-handle" draggable="false"></div>
+          <div class="ui-input-slider-inner-area">
+            <div class="ui-input-slider-fill"></div>
+          </div>
+        </div>
+    </div>
+
+
+  <script>
+    var UIInputSlider = require('ui-input-slider');
+    var stylar = require('DamonOehlman-stylar');
+    var slider, slider2;
+
+    window.onload = function() {
+
+      slider = new UIInputSlider('#s1', {});
+      // slider.on('change', function(x, y, p) {
+      //   this.input.value = p;
+      // });
+
+
+      slider2 = new UIInputSlider('#s2', {
+        max: 2000,
+        theme: 'demo-custom'
+      });
+
+      slider3 = new UIInputSlider('#s3', {
+        max: 2000,
+        theme: 'demo-custom-v2'
+      });
+
+      // slider2.on('change', function(x, y, p) {
+      //   this.input.value = p;
+      // });
+    }
+  </script>
+</body>
+</html>

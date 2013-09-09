@@ -1,0 +1,26 @@
+{
+  "name": "ui-input-slider",
+  "repo": "vieron/ui-input-slider",
+  "description": "Custom slider input component",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "vieron/draggy": "*",
+    "component/emitter": "*",
+    "component/events": "*",
+    "segmentio/extend": "*",
+    "component/classes": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "index.scss"
+  ],
+  "templates": [
+    "templates/template.html"
+  ]
+}
