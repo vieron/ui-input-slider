@@ -28,16 +28,9 @@ function UIInputSlider(el, opts) {
 	var self = this;
 	this.el = typeof el === 'string' ? doc.querySelector(el) : el;
 	this.opts = extend({}, defaults, opts);
-	this.opts.draggy = extend({}, defaults.draggy, opts.draggy);
+	this.opts.draggy = extend({}, defaults.draggy, opts && opts.draggy || {});
 
 	this.opts.draggy.onChange = function(x, y) { self.onChange(x, y) };
-
-	this.handle = this.el.querySelector(this.opts.handle);
-	this.handleWidth = parseInt(this.handle.offsetWidth, 10);
-
-	this.area = this.el.querySelector(this.opts.sliderArea);
-	this.input = this.el.querySelector(this.opts.input);
-	this.fill = this.el.querySelector(this.opts.fill);
 
 	this.init();
 }
@@ -49,6 +42,18 @@ Emitter(fn);
 fn.init = function() {
 	var val;
 
+	this.handle = this.el.querySelector(this.opts.handle);
+	this.area = this.el.querySelector(this.opts.sliderArea);
+	this.input = this.el.querySelector(this.opts.input);
+	this.fill = this.el.querySelector(this.opts.fill);
+
+	if (!this.handle || !this.sliderArea) {
+		// throw new Error('handle or sliderArea are required');
+		return this;
+	}
+
+	this.handleWidth = parseInt(this.handle.offsetWidth, 10);
+
 	classes(this.el).add('ui-theme-' + this.opts.theme);
 	this.draggy = new Draggy(this.handle, this.opts.draggy);
 	this.prevLimitX = this.draggy.ele.limitsX[1];
@@ -58,6 +63,8 @@ fn.init = function() {
 	if ((val = this.value()) > 0) {
 		this.value(val);
 	}
+
+	return this;
 };
 
 fn.events = function() {
