@@ -3,6 +3,8 @@
 
   A custom slider input component
 
+  ![build status](https://api.travis-ci.org/vieron/ui-input-slider.png "ui-input-slider build status")
+
 ## Installation
 
   Install with [component(1)](http://component.io):
