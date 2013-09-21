@@ -82,7 +82,7 @@
 <body>
 
     <div id="s1" class="ui-input-slider">
-      <input type="number" class="ui-input-slider-input" value="80">
+      <input type="number" class="ui-input-slider-input" value="800">
         <div class="ui-input-slider-area">
           <div class="ui-input-slider-handle" draggable="false"></div>
           <div class="ui-input-slider-inner-area">
@@ -117,23 +117,22 @@
 
   <script>
     var UIInputSlider = require('ui-input-slider');
-    var stylar = require('DamonOehlman-stylar');
     var slider, slider2;
 
     window.onload = function() {
 
-      slider = new UIInputSlider('#s1', {});
+      slider = new UIInputSlider(document.querySelector('#s1'), {});
       // slider.on('change', function(x, y, p) {
       //   this.input.value = p;
       // });
 
 
-      slider2 = new UIInputSlider('#s2', {
+      slider2 = new UIInputSlider(document.querySelector('#s2'), {
         max: 2000,
         theme: 'demo-custom'
       });
 
-      slider3 = new UIInputSlider('#s3', {
+      slider3 = new UIInputSlider(document.querySelector('#s3'), {
         max: 2000,
         theme: 'demo-custom-v2'
       });
