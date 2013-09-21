@@ -1,0 +1,40 @@
+/*! ui-input-slider - v0.0.1 - 2013-09-22
+* http://github.com/vieron/ui-input-slider.git
+* Copyright (c) 2013 vieron; Licensed MIT */
+
+
+.ui-input-slider {
+  width: 100%; }
+
+
+.ui-input-slider-area {
+  height: 20px;
+  display: block;
+  position: relative; }
+
+.ui-input-slider-inner-area {
+  border: 1px solid #CCC;
+  background: #DDD;
+  height: 100%;
+  display: block;
+  margin: 0 10px;
+  z-index: 10; }
+
+.ui-input-slider-handle {
+  position: absolute;
+  z-index: 100;
+  background: #000;
+  cursor: pointer;
+  opacity: 0.6;
+  -moz-opacity: 0.6;
+  border: 1px solid #000;
+  width: 20px;
+  height: 100%; }
+
+.ui-input-slider-fill {
+  position: relative;
+  width: 0;
+  background: #55606E;
+  height: 100%;
+  left: 0;
+  top: 0; }
