@@ -17,16 +17,16 @@ var defaults = {
 	fill: '.ui-input-slider-fill',
 	theme: '',
 	draggy: {
-	    restrictY: true,
-	    bindTo: '.ui-input-slider-area'
+		restrictY: true,
+		bindTo: '.ui-input-slider-area'
 	}
-}
+};
 
 
 
 function UIInputSlider(el, opts) {
 	var self = this;
-	this.el = typeof el === 'string' ? doc.querySelector(el) : el;
+	this.el = el;
 	this.opts = extend({}, defaults, opts);
 	this.opts.draggy = extend({}, defaults.draggy, opts && opts.draggy || {});
 
@@ -47,7 +47,7 @@ fn.init = function() {
 	this.input = this.el.querySelector(this.opts.input);
 	this.fill = this.el.querySelector(this.opts.fill);
 
-	if (!this.handle || !this.sliderArea) {
+	if (!this.handle || !this.area) {
 		// throw new Error('handle or sliderArea are required');
 		return this;
 	}
@@ -60,8 +60,8 @@ fn.init = function() {
 
 	this.events();
 
-	if ((val = this.value()) > 0) {
-		this.value(val);
+	if ((val = this.val()) > 0) {
+		this.val(val);
 	}
 
 	return this;
@@ -106,12 +106,13 @@ fn.setInputVal = function(value) {
 	return this;
 };
 
-fn.value = function(val) {
+fn.val = function(val) {
 	if (typeof val === 'undefined') {
 		val = Math.max(this.opts.min, Math.min(parseFloat(this.input.value), this.opts.max));
 		return val;
 	}
 
+	val = Math.max(0, Math.min(val, this.opts.max));
 	var posX = (parseInt(this.area.offsetWidth - this.handleWidth, 10) * val) / this.opts.max;
 	this.draggy.moveTo(posX, 0);
 	this.onChange(posX, 0);
@@ -129,11 +130,12 @@ fn.reposition = function() {
 
 fn.setFillTo = function(x, y) {
 	var d = this.opts.max / 100;
-	stylar(this.fill).set('width', (this.percent / d) + '%');
+	this.fill.style.width = (this.percent / d) + '%';
 	return this;
 };
 
 fn.onInputChange = function(e) {
-	this.value(this.value());
+	this.val(this.val());
 };
 
+fn.destroy = fn.unbind;

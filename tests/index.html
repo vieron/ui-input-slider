@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Example Mocha Test</title>
+    <link rel="stylesheet" href="assets/css/mocha.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="../build/ui-input-slider.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+    <!-- Required for browser reporter -->
+    <div id="mocha"></div>
+
+    <div class="ui-input-slider">
+      <input type="number" class="ui-input-slider-input" value="80">
+        <div class="ui-input-slider-area">
+          <div class="ui-input-slider-handle" draggable="false"></div>
+          <div class="ui-input-slider-inner-area">
+            <div class="ui-input-slider-fill"></div>
+          </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/underscore.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- mocha -->
+    <script src="assets/js/mocha.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        // This will be overridden by mocha-helper if you run with grunt
+        mocha.setup('bdd');
+    </script>
+
+    <!-- Include your assertion lib of choice -->
+    <script src="assets/js/chai.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        // Setup chai
+        var expect = chai.expect;
+    </script>
+
+    <!-- Include anything you want to test -->
+    <script src="../build/ui-input-slider.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Spec files -->
+    <script src="spec/ui-input-slider.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- run mocha -->
+    <script type="text/javascript" charset="utf-8">
+        // If tests run in a real browser
+        // Can alternatively do a check on window.PHANTOMJS
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+            mocha
+                .globals(['require', '_']) // acceptable globals
+                .run();
+        }
+    </script>
+</body>
+</html>
