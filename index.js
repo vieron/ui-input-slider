@@ -23,7 +23,15 @@ var defaults = {
 };
 
 
-
+/**
+ * @class UIInputSlider
+ * Input slider
+ *
+ * @constructor
+ * Creates a new Input Slider instance.
+ * @param {HTMLElement} [el] The input HTML element.
+ * @param {Object} [opts] Configuration object.
+ */
 function UIInputSlider(el, opts) {
 	var self = this;
 	this.el = el;
