@@ -1277,12 +1277,12 @@ ClassList.prototype.contains = function(name){
 
 });
 require.register("ui-input-slider/index.js", function(exports, require, module){
-var Draggy = require('draggy')
-	, extend = require('extend')
-	, classes = require('classes')
-	, events = require('events')
-	, Emitter = require('emitter')
-	, template = require('./templates/template.html');
+var Draggy = require('draggy'),
+	extend = require('extend'),
+	classes = require('classes'),
+	events = require('events'),
+	Emitter = require('emitter'),
+	template = require('./templates/template.html');
 
 module.exports = UIInputSlider;
 
