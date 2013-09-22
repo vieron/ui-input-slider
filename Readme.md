@@ -11,9 +11,9 @@
 
     $ component install vieron/ui-input-slider
 
-## API
+## API Docs
 
-
+[http://vieron.github.io/ui-input-slider/](http://vieron.github.io/ui-input-slider/)
 
 
 ## Build
